@@ -1,6 +1,18 @@
 # Introduction
 
-Support vector machine is highly preferred by many as it produces significant accuracy with less computation power. Support Vector Machine, abbreviated as SVM can be used for both regression and classification tasks. But, it is widely used in classification objectives.
+Support vector machine is a supervised mahince learning algorithm and highly preferred by many as it produces significant accuracy with less computation power. Support Vector Machine, abbreviated as SVM can be used for  regression, classification tasks and outlier detection. But, it is widely used in classification objectives.
+
+The advantages of support vector machines are:
+
+- Effective in high dimensional spaces.
+- Still effective in cases where number of dimensions is greater than the number of samples.
+- Uses a subset of training points in the decision function (called support vectors), so it is also memory efficient.
+- Versatile: different Kernel functions can be specified for the decision function. Common kernels are provided, but it is also possible to specify custom kernels.
+
+The disadvantages of support vector machines include:
+
+- If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial.
+- SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation 
 
 ## What is Support Vector Machine?
 
