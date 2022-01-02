@@ -63,6 +63,9 @@ When there is a misclassification, i.e our model make a mistake on the predictio
 ![image](https://user-images.githubusercontent.com/60442877/147866238-aa882eac-6d94-4682-83ef-069800bfb2ca.png)
 
 
+
+
+
 ## Support Vector Machine for Regression
 
 Support Vector Machines (SVMs) are well known in classification problems. The use of SVMs in regression is not as well documented, however. These types of models are known as Support Vector Regression (SVR). SVR is a powerful algorithm that allows us to choose how tolerant we are of errors, both through an acceptable error margin(ϵ) and through tuning our tolerance of falling outside that acceptable error rate. 
