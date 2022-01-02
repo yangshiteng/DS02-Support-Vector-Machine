@@ -65,6 +65,85 @@ When there is a misclassification, i.e our model make a mistake on the predictio
 
 ## Soft Margin
 
+Two types of misclassifications are tolerated by SVM under soft margin:
+- The dot is on the wrong side of the decision boundary but on the correct side/ on the margin (shown in left)
+- The dot is on the wrong side of the decision boundary and on the wrong side of the margin (shown in right)
+
+![image](https://user-images.githubusercontent.com/60442877/147867156-69b0158d-cb37-49e7-87c3-b05d3cb2c2ca.png)
+
+Applying Soft Margin, SVM tolerates a few dots to get misclassified and tries to balance the trade-off between finding a line that maximizes the margin and minimizes the misclassification.
+
+### Degree of tolerance
+
+How much tolerance(soft) we want to give when finding the decision boundary is an important hyper-parameter for the SVM (both linear and nonlinear solutions). In Sklearn, it is represented as the penalty term — ‘C’. The bigger the C, the more penalty SVM gets when it makes misclassification. Therefore, the narrower the margin is and fewer support vectors the decision boundary will depend on.
+
+![image](https://user-images.githubusercontent.com/60442877/147867177-5eac8d16-8742-4306-ba2f-591f4bd5f683.png)
+
+## Kernel Trick 
+
+What Kernel Trick does is that it utilizes existing features, applies some transformations, and creates new features. Those new features are the key for SVM to find the nonlinear decision boundary.
+
+In Sklearn — svm.SVC(), we can choose ‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’ or a callable as our kernel/transformation. I will give examples of the two most popular kernels — Polynomial and Radial Basis Function(RBF).
+
+![image](https://user-images.githubusercontent.com/60442877/147867614-33c201fa-8c1d-41d1-bf7f-38712e50efad.png)
+
+- Polynomial Kernel
+
+Think of the polynomial kernel as a transformer/processor to generate new features by applying the polynomial combination of all the existing features.
+
+To illustrate the benefit of applying a polynomial transformer, let’s use a simple example:
+
+![image](https://user-images.githubusercontent.com/60442877/147867666-04efbdec-e10c-4c5d-85e0-c44d3a943cb1.png)
+
+Existing Feature: X = np.array([-2,-1,0, 1,2])
+Label: Y = np.array([1,1,0,1,1])
+it’s impossible for us to find a line to separate the yellow (1)and purple (0) dots (shown on the left).
+
+But, if we apply transformation X² to get:
+New Feature: X = np.array([4,1,0, 1,4])
+By combing the existing and new feature, we can certainly draw a line to separate the yellow purple dots (shown on the right).
+
+Support vector machine with a polynomial kernel can generate a non-linear decision boundary using those polynomial features.
+
+- Radial Basis Function (RBF) kernel
+
+Think of the Radial Basis Function kernel as a transformer/processor to generate new features by measuring the distance between all other dots to a specific dot/dots — centers. The most popular/basic RBF kernel is the Gaussian Radial Basis Function:
+
+![image](https://user-images.githubusercontent.com/60442877/147867788-5e26b18a-75a3-4372-a590-cbe960b2cc4e.png)
+
+gamma (γ) controls the influence of new features — Φ(x, center) on the decision boundary. The higher the gamma, the more influence of the features will have on the decision boundary, more wiggling the boundary will be.
+
+To illustrate the benefit of applying a Gaussian rbf (gamma = 0.1), let’s use the same example:
+
+![image](https://user-images.githubusercontent.com/60442877/147867795-8b1ca640-3836-430a-be66-926363abe57d.png)
+
+Existing Feature: X = np.array([-2,-1,0, 1,2])
+Label: Y = np.array([1,1,0,1,1])
+Again, it’s impossible for us to find a line to separate the dots (on left hand).
+
+But, if we apply Gaussian RBF transformation using two centers (-1,0) and (2,0) to get new features, we will then be able to draw a line to separate the yellow purple dots (on the right):
+New Feature 1: X_new1 = array([1.01, 1.00, 1.01, 1.04, 1.09])
+New Feature 2: X_new2 = array([1.09, 1.04, 1.01, 1.00, 1.01])
+
+Similar to the penalty term — C in the soft margin, Gamma is a hyperparameter that we can tune for when we use SVM with kernel.
+
+![image](https://user-images.githubusercontent.com/60442877/147867856-36b7c17f-8437-4cec-96b6-b0e13190cb78.png)
+
+![image](https://user-images.githubusercontent.com/60442877/147867862-e67b60ae-1ae8-4c96-aeb3-2d5d54697c50.png)
+
+To sum up, SVM in the linear nonseparable cases:
+
+- By combining the soft margin (tolerance of misclassifications) and kernel trick together, Support Vector Machine is able to structure the decision boundary for linear non-separable cases.
+- Hyper-parameters like C or Gamma control how wiggling the SVM decision boundary could be.
+- the higher the C, the more penalty SVM was given when it misclassified, and therefore the less wiggling the decision boundary will be
+- the higher the gamma, the more influence the feature data points will have on the decision boundary, thereby the more wiggling the boundary will be
+
+
+
+
+
+
+
 
 # Support Vector Machine for Regression
 
