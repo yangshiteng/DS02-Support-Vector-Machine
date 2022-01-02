@@ -183,7 +183,7 @@ The concept of slack variables is simple: for any value that falls outside of ϵ
 
 ![image](https://user-images.githubusercontent.com/60442877/147866816-6e9574f3-d1d0-4816-ace7-5fcb01ef4d81.png)
 
-We now have an additional hyperparameter, C, that we can tune. As C increases, our tolerance for points outside of ϵ also increases. As C approaches 0, the tolerance approaches 0 and the equation collapses into the simplified (although sometimes infeasible) one.
+We now have an additional hyperparameter, C, that we can tune. 
 
 Let’s set C=1.0 and retrain our model above. The results are plotted below
 
