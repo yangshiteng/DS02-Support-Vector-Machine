@@ -86,7 +86,7 @@ However, what if we are only concerned about reducing error to a certain degree?
 
 Take housing prices for example. What if we are okay with the prediction being within a certain dollar amount — say $5,000? We can then give our model some flexibility in finding the predicted values, as long as the error is within that range.
 
-### Support Vector Regression
+## Support Vector Regression
 
 Enter Support Vector Regression. SVR gives us the flexibility to define how much error is acceptable in our model and will find an appropriate line (or hyperplane in higher dimensions) to fit the data.
 
