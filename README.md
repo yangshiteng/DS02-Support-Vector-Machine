@@ -1,4 +1,4 @@
-# Introduction
+# 1. Introduction
 
 Support vector machine is a supervised mahince learning algorithm and highly preferred by many as it produces significant accuracy with less computation power. Support Vector Machine, abbreviated as SVM can be used for  regression, classification tasks and outlier detection. But, it is widely used in classification objectives.
 
@@ -14,7 +14,7 @@ The disadvantages of support vector machines include:
 - If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial.
 - SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation 
 
-## What is Support Vector Machine?
+## 1.1 What is Support Vector Machine?
 
 The objective of the support vector machine algorithm is to find a hyperplane in an N-dimensional space(N — the number of features) that distinctly classifies the data points.
 
@@ -22,7 +22,7 @@ The objective of the support vector machine algorithm is to find a hyperplane in
 
 To separate the two classes of data points, there are many possible hyperplanes that could be chosen. Our objective is to find a plane that has the maximum margin, i.e the maximum distance between data points of both classes. Maximizing the margin distance provides some reinforcement so that future data points can be classified with more confidence.
 
-## Hyperplanes and Support Vectors
+## 1.2 Hyperplanes and Support Vectors
 
 ![image](https://user-images.githubusercontent.com/60442877/147866096-ef674ee5-c67f-4167-930e-c8a06d6fbe47.png)
 
@@ -32,11 +32,11 @@ Hyperplanes are decision boundaries that help classify the data points. Data poi
 
 Support vectors are data points that are closer to the hyperplane and influence the position and orientation of the hyperplane. Using these support vectors, we maximize the margin of the classifier. Deleting the support vectors will change the position of the hyperplane. These are the points that help us build our SVM.
 
-## Large Margin Intuition
+## 1.3 Large Margin Intuition
 
 In logistic regression, we take the output of the linear function and squash the value within the range of [0,1] using the sigmoid function. If the squashed value is greater than a threshold value(0.5) we assign it a label 1, else we assign it a label 0. In SVM, we take the output of the linear function and if that output is greater than 1, we identify it with one class and if the output is -1, we identify is with another class. Since the threshold values are changed to 1 and -1 in SVM, we obtain this reinforcement range of values([-1,1]) which acts as margin.
 
-## Cost Function and Gradient Updates
+## 1.4 Cost Function and Gradient Updates
 
 In the SVM algorithm, we are looking to maximize the margin between the data points and the hyperplane. The loss function that helps maximize the margin is hinge loss.
 
@@ -63,7 +63,7 @@ When there is a misclassification, i.e our model make a mistake on the predictio
 ![image](https://user-images.githubusercontent.com/60442877/147866238-aa882eac-6d94-4682-83ef-069800bfb2ca.png)
 
 
-## Soft Margin
+## 1.5 Soft Margin
 
 Two types of misclassifications are tolerated by SVM under soft margin:
 - The dot is on the wrong side of the decision boundary but on the correct side/ on the margin (shown in left)
@@ -73,13 +73,13 @@ Two types of misclassifications are tolerated by SVM under soft margin:
 
 Applying Soft Margin, SVM tolerates a few dots to get misclassified and tries to balance the trade-off between finding a line that maximizes the margin and minimizes the misclassification.
 
-### Degree of tolerance
+### 1.51 Degree of tolerance
 
 How much tolerance(soft) we want to give when finding the decision boundary is an important hyper-parameter for the SVM (both linear and nonlinear solutions). In Sklearn, it is represented as the penalty term — ‘C’. The bigger the C, the more penalty SVM gets when it makes misclassification. Therefore, the narrower the margin is and fewer support vectors the decision boundary will depend on.
 
 ![image](https://user-images.githubusercontent.com/60442877/147867177-5eac8d16-8742-4306-ba2f-591f4bd5f683.png)
 
-## Kernel Trick 
+## 1.6 Kernel Trick 
 
 What Kernel Trick does is that it utilizes existing features, applies some transformations, and creates new features. Those new features are the key for SVM to find the nonlinear decision boundary.
 
@@ -145,11 +145,11 @@ To sum up, SVM in the linear nonseparable cases:
 
 
 
-# Support Vector Machine for Regression
+# 2. Support Vector Machine for Regression
 
 Support Vector Machines (SVMs) are well known in classification problems. The use of SVMs in regression is not as well documented, however. These types of models are known as Support Vector Regression (SVR). SVR is a powerful algorithm that allows us to choose how tolerant we are of errors, both through an acceptable error margin(ϵ) and through tuning our tolerance of falling outside that acceptable error rate. 
 
-## Simple Linear Regression
+## 2.1 Simple Linear Regression
 
 In most linear regression models, the objective is to minimize the sum of squared errors. Take Ordinary Least Squares (OLS) for example. The objective function for OLS with one predictor (feature) is as follows:
 
@@ -165,7 +165,7 @@ However, what if we are only concerned about reducing error to a certain degree?
 
 Take housing prices for example. What if we are okay with the prediction being within a certain dollar amount — say $5,000? We can then give our model some flexibility in finding the predicted values, as long as the error is within that range.
 
-## Support Vector Regression
+## 2.2 Support Vector Regression
 
 Enter Support Vector Regression. SVR gives us the flexibility to define how much error is acceptable in our model and will find an appropriate line (or hyperplane in higher dimensions) to fit the data.
 
