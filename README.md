@@ -207,5 +207,14 @@ The plot above shows that this model has again improved upon previous ones, as e
 
 
 
+# 3. Video Tutorial 
+
+
+
+
+
+
+
+
 
 
